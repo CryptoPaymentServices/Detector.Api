@@ -26,7 +26,7 @@ The payment detection will be started for your addresses only when you have posi
 ```c#
 public async Task<IActionResult> PostPayment([FromBody] PaymentRequest request)
 {
-  if (request.SecretKey != Consts.Campaings.CryptoPaymaintIo.SecretKey)
+  if (request.SecretKey != _secretKey)
   {
     return BadRequest("Invalid secret key");
   }
