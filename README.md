@@ -38,7 +38,7 @@ public async Task<IActionResult> PostPayment([FromBody] PaymentRequest request)
     return Ok();
   }
 
-  // process payment message here
+  // process payment here
   //...
   // end payment processing
   
