@@ -42,7 +42,7 @@ public async Task<IActionResult> PostPayment([FromBody] PaymentRequest request)
   //...
   // end payment processing
   
-  //save payment
+  //save payment id
   await _paymentRepo.Save(request.Id);
 
   return Ok();
