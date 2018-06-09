@@ -16,6 +16,39 @@ The payment detection will be started for your addresses only when you have posi
 - Create campaign using `POST /api/campaigns`. The `active` property can be set to true only when `notifyUrlActive = true` or `notifySlackActive = true`
 - Add addresses using POST `/api/campaigns/{campaignId}/addresses`
 
+## How to setup url that can receive payment notifications
+- The url must be able to recieve http POST requests and read message from request body.
+- Please review details about structure of notification message in swagger in `PaymentNotification` model
+- You can send test payment notification message to your url using `POST /test/url`
+
+### c# example
+
+```c#
+public async Task<IActionResult> PostPayment([FromBody] PaymentRequest request)
+{
+  if (request.SecretKey != Consts.Campaings.CryptoPaymaintIo.SecretKey)
+  {
+    return BadRequest("Invalid secret key");
+  }
+  
+  var exists = await _paymentRepo.Exists(f => f.Id == request.Id);
+  if (exists)
+  {
+    // return 200 status code if the payment was already processed
+    return Ok();
+  }
+
+  // process payment message here
+  //...
+  // end payment processing
+  
+  //save payment
+  await _paymentRepo.Save(request.Id);
+
+  return Ok();
+}
+```
+
 ## How to get slack webhook url
 - Sign in to the Slack desktop or web app.
 - Select your <team name> drop-down menu. If you do not have a team set up, you will need to create one.
