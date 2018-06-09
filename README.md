@@ -11,7 +11,7 @@ In order to use the system you need an API access key. Getting a key is free and
 
 ## How to add addresses
 - Create campaign using `POST /api/campaigns`. The `active` property can be set to true only when `notifyUrlActive = true` or `notifySlackActive = true`
-- Add addresses to monitor using POST `/api/campaigns/{campaignId}/addresses`
+- Add addresses using POST `/api/campaigns/{campaignId}/addresses`
 
 ## Important
 The payment detection will be started for your addresses only when you have positive balance for your user. You can find out how to add funds to your balance here: https://github.com/CryptoPaymentServices/User.Api
