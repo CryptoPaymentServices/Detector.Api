@@ -1,8 +1,8 @@
 # Crypto-Payment.Services Detector.API
 This API allows to campaigns/addresses for which cash-in's/cash-out's must be detected and notifications send to your url or slack.
 
-API (MainNet): https://crypto-payment.services/detector/swagger/index.html
-API (TestNet): https://test.crypto-payment.services/detector/swagger/index.html
+- API (MainNet): https://crypto-payment.services/detector/swagger/index.html
+- API (TestNet): https://test.crypto-payment.services/detector/swagger/index.html
 
 ## How to use API
 You can use API directly from your applications or you can call it directly from swagger.
